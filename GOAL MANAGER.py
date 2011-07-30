@@ -67,16 +67,18 @@ def ShowNotes():
 
 def ShowReminders():
     f = os.listdir(".")
-    for item in range (0, len(f)-1):
+    x = 0
+    for item in range (0, len(f)):
         if f[item].endswith(".txt"):
             filename = str(f[item])
             r = open(filename, "r")
             r = r.readline()
             if r.startswith("CalTrue") == True:
+                x += 1
                 r = r.split(" ")
                 r.remove("CalTrue")
                 print
-                print"Note", item
+                print"Note", x
                 print 
                 print f[item]
                 print "At", r[0], r[1]
